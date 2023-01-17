@@ -32,9 +32,8 @@ function NewProduct({myId,upload, download}) {
                 navigate(`/item/${data.commonName}`)
                 setData({scientistName:"", commonName:"", price:"", photos:"", description:"", type:"",createdBy:myId})
               }
-              console.log(json)
             })
-            .catch(err => {console.log(err);
+            .catch(err => {
                 toast.error("Error: "+ err.message)
             })
     }
@@ -53,7 +52,7 @@ function NewProduct({myId,upload, download}) {
 
     //!CREATE PRODUCT WHEN Y GET A IMG URL
     useEffect(() => {
-      if(data.photos===""){console.log("vacio")}else{createItem()}
+      if(data.photos===""){return null}else{createItem()}
     }, [data.photos])
     
 
@@ -61,7 +60,7 @@ function NewProduct({myId,upload, download}) {
     <div className='d-flex justify-content-center align-items-center py-5'>
       <Toaster />
         <div className='d-flex flex-column col-12 col-sm-7 col-md-5 gap-3 rounded-5 my-5'>
-            <h1 onClick={() => console.log(data)} className="fw-bold text-dark">Comienza a vender</h1>
+            <h1  className="fw-bold text-dark">Comienza a vender</h1>
             <input className="form-control nunito text-dark fw-light bg-grey fs-4 border-0 px-4 py-3" value={data.scientistName} onChange={e => setData({...data,scientistName:e.target.value})} placeholder='Nombre científico' type="text" />
             <input className="form-control nunito text-dark fw-light bg-grey fs-4 border-0 px-4 py-3" value={data.commonName} onChange={e => setData({...data,commonName:e.target.value})} placeholder='Nombre común' type="text" />
 

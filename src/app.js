@@ -28,15 +28,10 @@ import storage from './utils/storage';
 import { download, upload } from './controllers/firebaseController';
 
 
-
-
-
-
-
 function App() {
 
   //TODO user with same email, same products
-  //TODO sort the backend (codes and modules)
+  //TODO sort the backend (codes and modules, utils here)
   //TODO modal window
   //TODO catch buys by users
 
@@ -72,18 +67,14 @@ function App() {
               }}).
           then(response => response.json()).
           then(json =>{
-            console.log(json);
             setCurrentAuthUser(json)
           }).
-          catch(error => console.log(error))
+          catch(error => alert(error))
         }
       };
       
     },[])
     
-    
-  
-
 
     //LOGOUT
     function logOut() {
@@ -92,9 +83,6 @@ function App() {
       setState(false);
   
     }
-
-
-
 
 
   return (

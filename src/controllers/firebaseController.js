@@ -9,8 +9,6 @@ import toast from 'react-hot-toast';
 export async function download (path){
     return getDownloadURL(ref(storage, path))
     .then((url) => {
-        console.log("Link recuperado")
-        console.log(url)
         return url
     })
     .catch((error) => {
@@ -36,7 +34,6 @@ export async function upload(name,file) {
     const storageRef = ref(storage, name);
 
     return uploadBytes(storageRef, file).then((snapshot) => {
-        console.log("hecho")
         return name
    }).catch(err => alert(err))
 }

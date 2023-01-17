@@ -17,9 +17,8 @@ function Account({userData, userState, myProducts, setMyProducts}) {
     fetch(`http://localhost:2000/API/misProductos/${userData.id}`).
       then(response => response.json()).
       then(json => {
-          console.log(json);
           setMyProducts(json)
-      }).catch(error=> console.log(error))
+      }).catch(error=> toast.error("Error al cargar los productos"))
   }
   useEffect(() => {
     getMyProducts()
@@ -32,7 +31,6 @@ function Account({userData, userState, myProducts, setMyProducts}) {
       method:'DELETE'
     }).then(response => response.json()).
     then( json => {
-      console.log(json)
       if(json.error){
         toast.error(json.mensaje)
       }else{
@@ -43,7 +41,7 @@ function Account({userData, userState, myProducts, setMyProducts}) {
     }).
     catch(error => {        
       toast.error(error.message)
-      console.log(error)})
+      })
   }
 
   
@@ -62,7 +60,7 @@ function Account({userData, userState, myProducts, setMyProducts}) {
         </div>
       }
       <div className="rounded-5 p-5 pt-3 w-100 bg-white d-flex flex-column justify-content-center align-items-center">
-              <h1 onClick={() => console.log(userData)} className='my-4 col-12 text-center fw-bold text-green'>Tu perfil:</h1>
+              <h1 className='my-4 col-12 text-center fw-bold text-green'>Tu perfil:</h1>
               <div className="d-flex flex-wrap flex-sm-nowrap">              
                   <div className="">
                     <p className="text-secondary fs-3 fw-light mx-3"><span className="fw-bold text-secondary">Nombre:</span> {userData.name+" "+userData.lastName}</p>

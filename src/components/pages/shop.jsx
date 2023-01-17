@@ -1,6 +1,7 @@
 import React, { useState,useEffect, useRef } from 'react'
 import ProductList from "../container/productsList"
 import { useSearchParams } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -18,7 +19,7 @@ function Shop() {
       fetch(`http://localhost:2000/API/shop?name=${params.get('name')}`).
       then(response => response.json())  
      .then(json => {setData([json])})    
-     .catch(err => console.log('Solicitud fallida', err)); 
+     .catch(err => toast.error('Solicitud fallida', err)); 
     }else{
         getAllProducts()
     }
@@ -29,7 +30,7 @@ function Shop() {
     fetch('http://localhost:2000/API')
     .then(response => response.json())  
     .then(json => {setData(json)})    
-    .catch(err => console.log('Solicitud fallida', err));
+    .catch(err => toast.error('Solicitud fallida', err));
   }
   
   //! GET PRODUCTS FROM A SEARCH
@@ -38,7 +39,7 @@ function Shop() {
     fetch(`http://localhost:2000/API/shop?name=${params.get('name')}`).
          then(response => response.json())  
         .then(json => {setData([json])})    
-        .catch(err => console.log('Solicitud fallida', err)); 
+        .catch(err => toast.error('Solicitud fallida', err)); 
   }
 
   //!SORTS
@@ -89,6 +90,7 @@ function Shop() {
 
   return (
     <div className="bg-grey">
+        <Toaster></Toaster>
 
       <div className='d-flex flex-row flex-wrap flex-sm-nowrap align-items-center justify-content-center m-5 px-4 py-4 gap-4 bg-white rounded-5'>
         <input value={params.get('name')} onChange={e => setParams({name:e.target.value})} type="text"  placeholder="Buscar"  className="form-control nunito text-dark fw-light bg-grey fs-4 border-0 rounded-5 px-4 py-3" />

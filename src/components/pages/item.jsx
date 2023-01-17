@@ -11,8 +11,8 @@ function Item({myId, setCarListItems, myCarListItems, userState}) {
   useEffect(() => {
     fetch(`http://localhost:2000/API/shop/${params.name}`).
       then(response => response.json()).
-      then(json => {setProduct(json); console.log(json)}).
-      catch(error => console.log(error))
+      then(json => setProduct(json)).
+      catch(error => toast.error("Error al cargar"))
   }, [])
   
 
@@ -37,7 +37,6 @@ function Item({myId, setCarListItems, myCarListItems, userState}) {
 
       if(itemToIncrease !== undefined){
           itemToIncrease.quanty=itemToIncrease.quanty+1;
-          console.log(itemToIncrease.quanty)
           setCarListItems([...myCarListItems])
           toast.success(`Una nueva unidad de ${product.commonName} agregada al carrito`)
           return
@@ -60,7 +59,6 @@ function Item({myId, setCarListItems, myCarListItems, userState}) {
 
     }). then(response => response.json()).
     then(json => {
-      console.log(json);
       if(json.error){
         toast.error(json.mensaje);
       }else{
@@ -70,7 +68,6 @@ function Item({myId, setCarListItems, myCarListItems, userState}) {
 
     }).
     catch(error => {
-      console.log(error);
       toast.error(error);
     })
     
@@ -84,7 +81,6 @@ function Item({myId, setCarListItems, myCarListItems, userState}) {
     }).
       then(response => response.json()).
       then(json => {
-        console.log(json);
         if(json.error){
           toast.error(json.mensaje);
         }else{
@@ -92,7 +88,6 @@ function Item({myId, setCarListItems, myCarListItems, userState}) {
         }
       }).
       catch(error => {
-        console.log(error)
         toast.error(error.message);
       })
   }

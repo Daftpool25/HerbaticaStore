@@ -3,7 +3,7 @@ import Jumbotron from "../pure/jumbotron"
 import Section from "../pure/section"
 import ThreeCol from "../container/threeCol"
 import ProductList from "../container/productsList"
-import { useNavigate,useSearchParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -20,7 +20,7 @@ function Home() {
     then(json =>{
       where(json)
     }).
-    catch( error => console.log(error))
+    catch( error => alert(error))
   }
   useEffect(() => {
     callAPI("interior",setInsideData);

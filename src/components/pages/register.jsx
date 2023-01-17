@@ -25,7 +25,6 @@ function Register({state,changeState,setCurrentUser,download,upload}) {
     }).
     then(response => response.json()).
     then(json => {
-      console.log(json)
 
       if(json.error){
         toast.error("Error: "+ json.mensaje)
@@ -39,7 +38,7 @@ function Register({state,changeState,setCurrentUser,download,upload}) {
       }
 
     }).
-    catch(error => {console.log(error);
+    catch(error => {
       toast.error("Error: "+ error.message)
     })
   }
@@ -57,7 +56,7 @@ function Register({state,changeState,setCurrentUser,download,upload}) {
   }
   //!CREATE PRODUCT WHEN Y GET A IMG URL
      useEffect(() => {
-      if(data.profilePhoto===""){console.log("vacio")}else{createUser()}
+      if(data.profilePhoto===""){return null}else{createUser()}
     }, [data.profilePhoto])
 
 

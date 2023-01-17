@@ -43,8 +43,8 @@ function Car({myCarListItems, setCarListItems}) {
                 headers: {"Content-type": "application/json; charset=UTF-8"},
                 body:JSON.stringify(myCarListItems)
             }).then(res => res.json()).
-            then(json => {console.log(json);  window.location.replace(json.url)}).
-            catch(err => console.log(err))
+            then(json =>  window.location.replace(json.url)).
+            catch(err => toast.error(err))
         }
        
     }

@@ -27,7 +27,6 @@ function Login({state, setState, setCurrentUser}) {
       then(response => response.json()).
       then(json => {
 
-        console.log(json)
         if(json.error){
           toast.error(json.mensaje)
         }
@@ -48,7 +47,7 @@ function Login({state, setState, setCurrentUser}) {
     <div className="fullContainer d-flex flex-column justify-content-center loginBg">
         <Toaster></Toaster>
           <div className="container d-flex flex-column  col-md-5 text-center justify-content-center align-items-center gap-3">
-              <h1 className="text-light fw-bold" onClick={() => console.log(loginData)}>Iniciar Sesión</h1>
+              <h1 className="text-light fw-bold" >Iniciar Sesión</h1>
               
               <input className="form-control nunito text-dark fw-light bg-grey fs-4 border-0 px-4 py-3" value={loginData.email} onChange={e => setLoginData({...loginData,email:e.target.value})} type="email" placeholder="Email" />
               {loginData.email.length < 4 && loginData.email.length !== 0 && <p className="text-light">Email muy corto</p>}
