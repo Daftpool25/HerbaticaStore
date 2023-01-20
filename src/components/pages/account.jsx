@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../pure/modal';
 import toast, { Toaster } from 'react-hot-toast';
+import storage from '../../utils/storage';
+
 
 
 
@@ -14,7 +16,7 @@ function Account({userData, userState, myProducts, setMyProducts}) {
 
   //!GetMyProductsList
   function getMyProducts() {
-    fetch(`http://localhost:2000/API/misProductos/${userData.id}`).
+    fetch(`http://localhost:2000/API/myproducts/${userData.id}`).
       then(response => response.json()).
       then(json => {
           setMyProducts(json)
@@ -27,15 +29,16 @@ function Account({userData, userState, myProducts, setMyProducts}) {
 
   //!DELETE PROFILE
   function removeProfile(){
-    fetch(`http://localhost:2000/API/usersTable/${userData.id}`,{
+    fetch(`http://localhost:2000/API/users/${userData.id}`,{
       method:'DELETE'
     }).then(response => response.json()).
     then( json => {
       if(json.error){
-        toast.error(json.mensaje)
+        toast.error(json.message)
       }else{
-        userState(false);
+        storage.remove("authToken");
         toast.success("Usuario elimnado exitosamente")
+        userState(false)
       }
 
     }).
@@ -96,8 +99,8 @@ function Account({userData, userState, myProducts, setMyProducts}) {
             }
       </div>
       <div className="d-flex flex-row flex-wrap flex-sm-nowrap gap-1 w-100 mb-5">
-            <button className="nunito fs-1  rounded-5 fw-light btn btn-dark col-12 col-sm-50">Notificaciones <span class="badge text-secondary">0</span></button>
-            <button  className="nunito fs-1 rounded-5 fw-light btn btn-secondary col-12 col-sm-50" onClick={removeProfile}>Eliminar cuenta</button>
+            <button className="nunito fs-1  rounded-5 fw-light btn btn-dark col-12 col-sm-6">Notificaciones <span class="badge text-secondary">0</span></button>
+            <button  className="nunito fs-1 rounded-5 fw-light btn btn-secondary col-12 col-sm-6" onClick={removeProfile}>Eliminar cuenta</button>
       </div>
     </div>
   )

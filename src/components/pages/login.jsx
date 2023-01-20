@@ -19,7 +19,7 @@ function Login({state, setState, setCurrentUser}) {
 
    //!LOGIN
   function login() {
-      fetch('http://localhost:2000/API/users',{
+      fetch('http://localhost:2000/API/users/',{
         method: "POST",
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify(loginData)
@@ -28,7 +28,7 @@ function Login({state, setState, setCurrentUser}) {
       then(json => {
 
         if(json.error){
-          toast.error(json.mensaje)
+          toast.error(json.message)
         }
         else if(json.response.quanty.length>0){
           setCurrentUser(json.response.quanty);

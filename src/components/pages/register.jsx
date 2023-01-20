@@ -18,7 +18,7 @@ function Register({state,changeState,setCurrentUser,download,upload}) {
 
   //!CREATE USER FUNCTION
   function createUser() {
-    fetch('http://localhost:2000/API/usersTable',{
+    fetch('http://localhost:2000/API/users/usersList',{
       method: "POST",
       headers: {"Content-type": "application/json; charset=UTF-8"},
       body: JSON.stringify(data)
@@ -27,8 +27,8 @@ function Register({state,changeState,setCurrentUser,download,upload}) {
     then(json => {
 
       if(json.error){
-        toast.error("Error: "+ json.mensaje)
-      }else if(!json.error && json.mensaje===""){
+        toast.error("Error: "+ json.message)
+      }else if(!json.error && json.message===""){
         toast.error("Error")
       }else{
         
@@ -56,7 +56,7 @@ function Register({state,changeState,setCurrentUser,download,upload}) {
   }
   //!CREATE PRODUCT WHEN Y GET A IMG URL
      useEffect(() => {
-      if(data.profilePhoto===""){return null}else{createUser()}
+      if(data.profilePhoto!==""){return createUser()}
     }, [data.profilePhoto])
 
 

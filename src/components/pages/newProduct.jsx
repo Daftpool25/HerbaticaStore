@@ -8,7 +8,7 @@ function NewProduct({myId,upload, download}) {
 
     //!HOOKS
     const [data, setData] = useState({scientistName:"", commonName:"", price:"", photos:"", description:"", type:"",createdBy:myId});
-    const[imgFile,setImgFile]=useState();
+    const[imgFile,setImgFile]=useState("");
     
 
     //!NAVIGATE
@@ -26,7 +26,7 @@ function NewProduct({myId,upload, download}) {
             .then(response => response.json()) 
             .then(json => {
               if(json.error){
-                toast.error("Error: "+ json.mensaje)
+                toast.error("Error: "+ json.message)
               }else{
                 toast.success('¡Tu planta ha sido publicada!')
                 navigate(`/item/${data.commonName}`)
@@ -52,7 +52,7 @@ function NewProduct({myId,upload, download}) {
 
     //!CREATE PRODUCT WHEN Y GET A IMG URL
     useEffect(() => {
-      if(data.photos===""){return null}else{createItem()}
+      if(data.photos!==""){return createItem()}
     }, [data.photos])
     
 

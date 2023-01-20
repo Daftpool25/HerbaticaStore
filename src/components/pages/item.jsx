@@ -60,7 +60,7 @@ function Item({myId, setCarListItems, myCarListItems, userState}) {
     }). then(response => response.json()).
     then(json => {
       if(json.error){
-        toast.error(json.mensaje);
+        toast.error(json.message);
       }else{
         toast.success('¡Producto Editado!');
         setEditMode(false)
@@ -82,7 +82,7 @@ function Item({myId, setCarListItems, myCarListItems, userState}) {
       then(response => response.json()).
       then(json => {
         if(json.error){
-          toast.error(json.mensaje);
+          toast.error(json.message);
         }else{
           toast.success('¡Producto Eliminado!');
         }

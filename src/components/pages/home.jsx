@@ -23,8 +23,8 @@ function Home() {
     catch( error => alert(error))
   }
   useEffect(() => {
-    callAPI("interior",setInsideData);
-    callAPI("exterior",setOutsideData);
+    callAPI("indoor",setInsideData);
+    callAPI("outdoor",setOutsideData);
   }, [])
 
 

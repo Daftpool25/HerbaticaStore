@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e82e8250.css",
+    "main.js": "/static/js/main.dcd84bf7.js",
+    "static/media/leaves.jpg": "/static/media/leaves.df030a46b63f0d60c61c.jpg",
+    "static/media/flowers.jpg": "/static/media/flowers.a63a2f9a3fb3e7779221.jpg",
+    "static/media/cactus.jpg": "/static/media/cactus.375636b08f32bf044534.jpg",
+    "static/media/loginBackground.jpg": "/static/media/loginBackground.4ce460888be67bff9f60.jpg",
+    "index.html": "/index.html",
+    "static/media/github.svg": "/static/media/github.22e65707326e3e1e37afd21c5334995a.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.2eda7bddaacee15c44494bb63ca94165.svg",
+    "static/media/cancel.svg": "/static/media/cancel.4b0111c26ae4aac3768013e820d69aed.svg",
+    "static/media/check.svg": "/static/media/check.756d8a26e3bc5c96a2e037e6c58cac13.svg",
+    "static/media/logout.svg": "/static/media/logout.c7346a973a4d79019985392e39285ee5.svg",
+    "static/media/login.svg": "/static/media/login.f2757f330ab36f1019e12faaeb8faa22.svg",
+    "main.e82e8250.css.map": "/static/css/main.e82e8250.css.map",
+    "main.dcd84bf7.js.map": "/static/js/main.dcd84bf7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e82e8250.css",
+    "static/js/main.dcd84bf7.js"
+  ]
+}
